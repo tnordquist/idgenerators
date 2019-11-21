@@ -2,17 +2,14 @@ package edu.cnm.deepdive.idgenerators.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Employee {
 
   @Id
-//  @TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 100)
-//  @GeneratedValue(strategy = GenerationType.TABLE,generator = "employee_gen")
-  @GenericGenerator(name = "employee_id", strategy = "edu.cnm.deepdive.idgenerators.CustomRandomIDGenerator")
-  @GeneratedValue(generator = "employee_id")
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
   private String name;
